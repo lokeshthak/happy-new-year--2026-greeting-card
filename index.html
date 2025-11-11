@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year 2026!</title>
+    <style>
+        :root {
+            --sparkle-color: #ffd700;
+        }
+
+        /* --- Basic Setup and Dark Theme --- */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Noto Sans Devanagari', 'Segoe UI', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* --- Falling Glitters/Confetti Animation --- */
+        .glitter { position: absolute; width: 8px; height: 12px; background: #f00; opacity: 0.8; animation: fall linear infinite; }
+        @keyframes fall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
+        .glitter:nth-child(1) { left: 10%; animation-duration: 4s; animation-delay: 0.5s; background: #ff0; }
+        .glitter:nth-child(2) { left: 20%; animation-duration: 5s; animation-delay: 1s; background: #0f0; }
+        .glitter:nth-child(3) { left: 30%; animation-duration: 3s; animation-delay: 2s; background: #0ff; }
+        .glitter:nth-child(4) { left: 40%; animation-duration: 4.5s; animation-delay: 0.2s; background: #00f; }
+        .glitter:nth-child(5) { left: 50%; animation-duration: 6s; animation-delay: 3s; background: #f0f; }
+        .glitter:nth-child(6) { left: 60%; animation-duration: 3.5s; animation-delay: 1.5s; background: #ff4500; }
+        .glitter:nth-child(7) { left: 70%; animation-duration: 5.5s; animation-delay: 0.8s; background: #ff1493; }
+        .glitter:nth-child(8) { left: 80%; animation-duration: 4s; animation-delay: 2.5s; background: #adff2f; }
+        .glitter:nth-child(9) { left: 90%; animation-duration: 5s; animation-delay: 1.2s; background: #d3d3d3; }
+        .glitter:nth-child(10) { left: 5%; animation-duration: 6s; animation-delay: 2.2s; background: #ffd700; }
+
+        /* --- Improved Sky Shot Firework --- */
+        .firework { position: absolute; width: 4px; height: 4px; background: #fff; border-radius: 50%; opacity: 0; animation: shoot 1.5s ease-out infinite; }
+        @keyframes shoot { 0% { transform: translateY(0); opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(-300px); opacity: 0; box-shadow: 0 0 20px #fff, 0 0 30px #ff0, 0 0 40px #f00; } }
+        .firework::before { content: ''; position: absolute; transform: translate(-50%, -50%); width: 0; height: 0; border-radius: 50%; opacity: 0; animation: burst 1s ease-out infinite; animation-delay: 1.4s; }
+        @keyframes burst { 0% { width: 0; height: 0; opacity: 1; } 100% { width: 200px; height: 200px; opacity: 0; } }
+        .firework:nth-child(1) { top: 80%; left: 20%; animation-delay: 0.3s; }
+        .firework:nth-child(1)::before { box-shadow: 0 0 20px 10px #ff0; }
+        .firework:nth-child(2) { top: 90%; left: 75%; animation-delay: 1s; }
+        .firework:nth-child(2)::before { box-shadow: 0 0 20px 10px #0f0; }
+        .firework:nth-child(3) { top: 70%; left: 50%; animation-delay: 2.2s; }
+        .firework:nth-child(3)::before { box-shadow: 0 0 20px 10px #f0f; }
+
+        /* --- Corner Sparklers --- */
+        .sparkler { position: absolute; width: 5px; height: 5px; background: var(--sparkle-color); border-radius: 50%; box-shadow: 0 0 10px var(--sparkle-color), 0 0 20px var(--sparkle-color), 0 0 30px #ff0; animation: sparkle 0.8s infinite; }
+        @keyframes sparkle { 50% { box-shadow: 0 0 10px var(--sparkle-color), 0 0 20px var(--sparkle-color), 0 0 30px #ff0, 10px 10px 5px #fff, -10px -10px 5px var(--sparkle-color), 10px -10px 5px #fff, -10px 10px 5px var(--sparkle-color); } }
+        #sparkler-tl { top: 20px; left: 20px; }
+        #sparkler-tr { top: 20px; right: 20px; }
+        #sparkler-bl { bottom: 20px; left: 20px; }
+        #sparkler-br { bottom: 20px; right: 20px; }
+
+        /* --- Main Content Container --- */
+        .container {
+            position: relative; z-index: 10; padding: 25px 20px; background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px; box-shadow: 0 0 30px rgba(255, 255, 255, 0.1); max-width: 90%;
+            width: 500px; border: 1px solid rgba(255, 255, 255, 0.2); max-height: 95vh; overflow-y: auto;
+        }
+
+        /* --- Glowing Main Title --- */
+        .main-title {
+            font-size: 2.5rem; font-weight: bold; color: #fff;
+            text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa;
+            animation: glowing-text 1.5s ease-in-out infinite alternate;
+            margin-bottom: 20px;
+        }
+        @keyframes glowing-text {
+            from { text-shadow: 0 0 5px #fff, 0 0 10px #0073e6, 0 0 15px #0073e6; }
+            to { text-shadow: 0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6; }
+        }
+        
+        /* --- Personalized Countdown Message --- */
+        .countdown-message { font-size: 1.1rem; line-height: 1.6; color: #f0e68c; margin-bottom: 20px; }
+        #senderNamePlaceholder { font-weight: bold; color: #ffc107; }
+        #countdownTimer {
+            font-size: 1.3rem; font-weight: bold; color: #00ffab;
+            display: block; margin: 10px 0; text-shadow: 0 0 10px #00ffab;
+        }
+        
+        .sweets-intro {
+            font-size: 1.1rem; color: #fff; margin-bottom: 10px; font-style: italic; text-shadow: 0 0 5px #fff;
+        }
+
+        /* --- Sweets Image --- */
+        .sweets-image {
+            max-width: 250px; width: 70%; border-radius: 50%;
+            border: 4px solid #ffd700; box-shadow: 0 0 25px #ffd700;
+        }
+
+        /* --- Input and Button Styling --- */
+        #initialView { margin-top: 30px; }
+        .name-input { width: 80%; padding: 12px; border-radius: 25px; border: 2px solid #0fa; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 1rem; text-align: center; }
+        .name-input::placeholder { color: #ccc; }
+        .name-input:focus { outline: none; box-shadow: 0 0 15px #0fa; }
+        .generate-button { display: block; width: 85%; margin: 15px auto 0; padding: 12px; font-size: 1.1rem; font-weight: bold; color: #000; background: linear-gradient(45deg, #0fa, #0f0); border: none; border-radius: 25px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+        .generate-button:hover { transform: scale(1.05); box-shadow: 0 0 20px #0f0; }
+        
+        /* --- WhatsApp Share Button --- */
+        .whatsapp-share-button { display: none; align-items: center; justify-content: center; width: 85%; margin: 20px auto 0; padding: 10px; font-size: 1.1rem; font-weight: bold; color: #fff; background-color: #25D366; border: none; border-radius: 25px; cursor: pointer; text-decoration: none; transition: transform 0.2s, background-color 0.2s; }
+        .whatsapp-share-button:hover { transform: scale(1.05); background-color: #128C7E; }
+        
+        .whatsapp-share-button svg { 
+            width: 24px;
+            margin-right: 10px; 
+            fill: white;
+        }
+
+        /* --- Responsiveness --- */
+        @media (max-width: 600px) {
+            .main-title { font-size: 2rem; }
+            .sweets-image { max-width: 160px; }
+            .countdown-message { font-size: 1rem; }
+            #countdownTimer { font-size: 1.1rem; }
+            .name-input, .generate-button, .whatsapp-share-button { width: 95%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animation Elements -->
+    <div class="glitter"></div><div class="glitter"></div><div class="glitter"></div>
+    <div class="glitter"></div><div class="glitter"></div><div class="glitter"></div>
+    <div class="glitter"></div><div class="glitter"></div><div class="glitter"></div>
+    <div class="glitter"></div>
+    <div class="firework"></div><div class="firework"></div><div class="firework"></div>
+    <div id="sparkler-tl" class="sparkler"></div><div id="sparkler-tr" class="sparkler"></div>
+    <div id="sparkler-bl" class="sparkler"></div><div id="sparkler-br" class="sparkler"></div>
+
+    <div class="container">
+        
+        <h1 class="main-title">Happy New Year 2026!</h1>
+
+        <div id="personalizedMessageContainer">
+            <p class="countdown-message">
+                <span id="senderNamePlaceholder"></span> की तरफ से एडवांस 
+                <span id="countdownTimer"></span>
+                पहले आपको Happy New Year!
+                <br>
+                आपके सारे सपने इस साल पूरे हो जाएं यही दुआ है हमारी।
+            </p>
+        </div>
+
+        <p class="sweets-intro">यह हमारी तरफ से आपके लिए</p>
+        
+        <!-- IMAGE FIX: Make sure a file named "mithai.jpg" is in the same folder as this HTML file -->
+        <img src="mithai.jpg" alt="Mithai" class="sweets-image">
+        
+        <div id="initialView">
+            <div class="name-input-container">
+                <input type="text" id="senderName" class="name-input" placeholder="अपना शुभ नाम लिखें">
+                <button class="generate-button" onclick="generateLink()">अपने दोस्त को भेजे अपना पर्सनलाइज्ड लिंक बनाएं</button>
+            </div>
+            <a id="whatsappShareBtn" class="whatsapp-share-button" href="#" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.8 0-67.3-8.5-97.2-24.6l-7-4.1-72.5 19.1 19.4-70.5-4.5-7.3c-18.4-29.8-28.2-63.6-28.2-98.8 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+                </svg>
+                WhatsApp पर शेयर करें
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // --- Countdown Timer Logic ---
+        const countdownElement = document.getElementById("countdownTimer");
+        const newYearDate = new Date("Jan 1, 2026 00:00:00").getTime();
+
+        const countdownInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = newYearDate - now;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                countdownElement.innerHTML = "Happy New Year 2026 आ गया!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `${days} दिन, ${hours} घंटे, ${minutes} मिनट, ${seconds} सेकंड`;
+        }, 1000);
+
+        // --- Sharing and Personalization Logic ---
+        function getURLParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return decodeURIComponent(urlParams.get(name) || '');
+        }
+
+        window.onload = function() {
+            const fromName = getURLParameter('from');
+            const namePlaceholder = document.getElementById('senderNamePlaceholder');
+            
+            if (fromName) {
+                namePlaceholder.innerText = fromName;
+            } else {
+                namePlaceholder.innerText = "[भेजने वाले का नाम]";
+            }
+        };
+
+        function generateLink() {
+            const nameInput = document.getElementById('senderName');
+            const senderName = nameInput.value.trim();
+
+            if (senderName === "") {
+                alert("कृपया अपना नाम लिखें!");
+                return;
+            }
+            
+            const encodedName = encodeURIComponent(senderName);
+            const baseURL = window.location.href.split('?')[0];
+            const shareableLink = `${baseURL}?from=${encodedName}`;
+
+            const whatsappBtn = document.getElementById('whatsappShareBtn');
+            const greetingText = `🎉✨ *Happy New Year 2026 In Advance!* ✨🎉\n\n_आपको ${senderName} की तरफ से नए साल की ढेर सारी शुभकामनाएं!_\n\nये प्यारा सा Celebration और आपके नाम का personalize card भेजने के लिए नीचे दिए गए लिंक पर क्लिक करें:\n👇👇\n${shareableLink}`;
+            
+            whatsappBtn.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(greetingText)}`;
+            whatsappBtn.style.display = 'flex';
+            document.querySelector('.generate-button').style.display = 'none';
+            nameInput.disabled = true;
+        }
+    </script>
+</body>
+</html>
